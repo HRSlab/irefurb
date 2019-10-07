@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expanding Grid Item Animation | Codrops</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="pater/pater.css" />
+    <script>
+        document.documentElement.className = "js";
+        var supportsCssVars = function() {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+        };
+        supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+    </script>
+</head>
+
+<body class="loading">
+    <svg class="hidden">
+				<symbol id="icon-arrow" viewBox="0 0 24 24">
+					<title>arrow</title>
+					<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+				</symbol>
+				<symbol id="icon-drop" viewBox="0 0 24 24">
+					<title>drop</title>
+					<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
+				</symbol>
+				<symbol id="icon-cross" viewBox="0 0 24 24">
+					<title>cross</title>
+					<path d="M 5.5,2.5 C 5.372,2.5 5.244,2.549 5.146,2.646 L 2.646,5.146 C 2.451,5.341 2.451,5.659 2.646,5.854 L 8.793,12 2.646,18.15 C 2.451,18.34 2.451,18.66 2.646,18.85 L 5.146,21.35 C 5.341,21.55 5.659,21.55 5.854,21.35 L 12,15.21 18.15,21.35 C 18.24,21.45 18.37,21.5 18.5,21.5 18.63,21.5 18.76,21.45 18.85,21.35 L 21.35,18.85 C 21.55,18.66 21.55,18.34 21.35,18.15 L 15.21,12 21.35,5.854 C 21.55,5.658 21.55,5.342 21.35,5.146 L 18.85,2.646 C 18.66,2.451 18.34,2.451 18.15,2.646 L 12,8.793 5.854,2.646 C 5.756,2.549 5.628,2.5 5.5,2.5 Z"/>
+				</symbol>
+				<symbol id="icon-menu" viewBox="0 0 24 24">
+					<title>menu</title>
+					<path d="M23.8,6H0.1V3h23.7C23.8,3,23.8,6,23.8,6z M23.8,10.5H0.1v3h23.7C23.8,13.5,23.8,10.5,23.8,10.5z M24,18H10v3h14V18z"/>
+				</symbol>
+				<!-- Magnifier by Gregor Cresnar https://www.flaticon.com/authors/gregor-cresnar -->
+				<symbol id="icon-magnifier" viewBox="0 0 490.8 490.8">
+					<title>magnifier</title>
+					<path d="M364.8,299.55c46.3-75.8,36.9-176.3-28.6-241.9c-76.8-76.8-201.8-76.8-278.6,0s-76.8,201.8,0,278.5c65.5,65.5,166,74.9,241.9,28.6L412,477.25c18,18,47.3,18,65.3,0s18-47.3,0-65.3L364.8,299.55z M295.5,295.55c-54.4,54.4-142.8,54.4-197.1,0c-54.4-54.4-54.4-142.8,0-197.1c54.4-54.4,142.8-54.4,197.1,0C349.8,152.75,349.8,241.15,295.5,295.55z M220,171.95h59.4v45.3H220v59.4h-45.3v-59.4h-59.3v-45.3h59.4v-59.4h45.3v59.4H220z"/>
+				</symbol>
+    <main>
+        <div class="content">
+            <div class="grid">
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="img/iphone5sgold.png" alt="iPhone 5s Gold" />
+                        <h2 class="product__title">iPhone 5s Gold</h2>
+                        <h3 class="product__subtitle">16GB | Oro </h3>
+                        <p class="product__description">L’iPhone 5c è il modello base tra gli iPhone con stile dai colori vivaci, tra i quali l’azzurro, il grigio e il rosa. La fotocamera ti permette di catturare i tuoi momenti più belli in foto nitide e ben definite da inviare ad amici
+                            e conoscenti. L’iPhone 5c funziona con sistema operativo iOS 10.3.3.</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€129</strike><span> €89</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://www.ivcel.com/wp-content/uploads/2019/06/iphone8-web-1.png" alt="iPhone 8 64GB Grigio Siderale " />
+                        <h2 class="product__title">iPhone 8</h2>
+                        <h3 class="product__subtitle">64GB | Grigio Siderale </h3>
+                        <p class="product__description">Sistema a singola o doppia fotocamera (grandangolo e teleobiettivo) Fino a 14 ore di riproduzione video Resistente all’acqua (profondità massima di 1 metro fino a 30 minuti)</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€329</strike><span> €269</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://spider-mac.com/wp-content/uploads/2018/04/iPhone8-iPhone8PLUS-PRODUCT-RED_front-back_041018.png" alt="iPhone 8plus Red" />
+                        <h2 class="product__title">iPhone 8Plus</h2>
+                        <h3 class="product__subtitle">256GB | Rosso </h3>
+                        <p class="product__description">Tutti gli acquisti (PRODUCT)RED contribuiscono a fornire test, consulenza e terapie per decine di milioni di persone che convivono con HIV/AIDS</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€839</strike><span> €679</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://aziende.datatrade.sm/1077-thickbox_default/iphone-6s-64gb-rose-gold-ricondizionato-r12.jpg" alt="iPhone 6S 64GB Oro Rosa ricondizionato" />
+                        <h2 class="product__title">iPhone 6S</h2>
+                        <h3 class="product__subtitle">64GB | Oro Rosa </h3>
+                        <p class="product__description">Smartphone 100% funzionante certificato Smarter. Il telefono potrebbe presentare graffi leggeri o piccoli segni di utilizzo sulla scocca e/o sullo schermo, che non ne condizionano l'utilizzo. Ha superato con successo il nostro
+                            test in 28 passaggi per garantirti la massima soddisfazione</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€129</strike><span> €89</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://www.comenovo.it/269-large_default/apple-iphone-7-jet-black-nero-lucido-ricondizionato.jpg" alt="iPhone 7 256GB Nero ricondizionato" />
+                        <h2 class="product__title">iPhone 7</h2>
+                        <h3 class="product__subtitle">256GB | Nero</h3>
+                        <p class="product__description">Smartphone 100% funzionante certificato Smarter. Il telefono potrebbe presentare graffi leggeri o piccoli segni di utilizzo sulla scocca e/o sullo schermo, che non ne condizionano l'utilizzo. Ha superato con successo il nostro
+                            test in 28 passaggi per garantirti la massima soddisfazione</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€629</strike><span> €539</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://www.beapple.it/wp-content/uploads/2019/07/iphone-xs-silver-select-2018.png" alt="iPhone XS  Argento ricondizionato" />
+                        <h2 class="product__title">iPhone XS</h2>
+                        <h3 class="product__subtitle">256GB | Argento</h3>
+                        <p class="product__description">Apple iPhone XS è uno smartphone iOS con caratteristiche all’avanguardia che lo rendono una scelta eccellente per ogni tipo di utilizzo. Dispone di un grande display da 5.8 pollici e di una risoluzione da 2436×1125 pixel, fra le
+                            più elevate attualmente in circolazione.</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€1329</strike><span> €899</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://www.comenovo.it/242-large_default/apple-iphone-7-nero-black-ricondizionato.jpg" alt="iPhone 7 ricondizionato" />
+                        <h2 class="product__title">iPhone 7</h2>
+                        <h3 class="product__subtitle">32GB | Nero </h3>
+                        <p class="product__description">Smartphone 100% funzionante certificato Smarter. Il telefono potrebbe presentare graffi leggeri o piccoli segni di utilizzo sulla scocca e/o sullo schermo, che non ne condizionano l'utilizzo. Ha superato con successo il nostro
+                            test in 28 passaggi per garantirti la massima soddisfazione</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€129</strike><span> €89</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://d3h386ekbfvhnm.cloudfront.net/catalog/product/cache/5/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone6s-plus-silver-select-2015.png" alt="iphone 6s silver argento ricondizionato" />
+                        <h2 class="product__title">iPhone 6s</h2>
+                        <h3 class="product__subtitle">128GB | Argento </h3>
+                        <p class="product__description">Apple Modello: 6S 16GB 64Gb 128 Gb Peso articolo: 141 g Dimensioni: 13,8 x 6,7 x 0,7 cm RAM: 2 GB Memoria: 16 GB 64GB 128Gb Sistema operativo: iOS Schermo: 4.70 polliciRisoluzione schermo: 1080p Full HDRisoluzione sensore ottico: 12 MP Batteria: Ioni di litio Connettività: wifi, usb.</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€129</strike><span> €89</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-xr-blue-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1565209264208" alt="iPhone XR 64GB blu" />
+                        <h2 class="product__title">iPhone XR</h2>
+                        <h3 class="product__subtitle">64GB | blu</h3>
+                        <p class="product__description">Acquista iPhone XR senza SIM, in sei splendidi colori. Spedizione gratis in un giorno, resi veloci e gratuiti.</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€739</strike><span> €449</span></div>
+                    </div>
+                </div>
+                <div class="grid__item">
+                    <div class="product">
+                        <div class="product__bg"></div>
+                        <img class="product__img" src="https://www.beapple.it/wp-content/uploads/2019/07/iphone-xr-yellow-select-201809.png" alt="iPhone XR 64GB yellow" style="max-width: 300px !important ;"/>
+                        <h2 class="product__title">iPhone XR</h2>
+                        <h3 class="product__subtitle">128GB | Giallo </h3>
+                        <p class="product__description">Apple iPhone XR è uno degli smartphone iOS più avanzati e completi che ci siano in circolazione. Dispone di un grande display da 6.1 pollici con una risoluzione di 1792×828 pixel.</p>
+                        <div class="product__price"><strike style="color:rgba(42, 42, 42, .5); font-size:2rem;">€789</strike><span> €659</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
